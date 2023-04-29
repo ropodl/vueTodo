@@ -66,12 +66,12 @@
   ]);
 </script>
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row justify="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="4">
         <v-card flat color="transparent">
           <v-card-text class="text-center">
-            <v-avatar size="100">
+            <v-avatar size="120">
               <v-img cover src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
             </v-avatar>
           </v-card-text>
@@ -80,17 +80,19 @@
         </v-card>
         <template v-for="item in profile">
           <v-list-subheader v-text="item['subtitle']"></v-list-subheader>
-          <v-card border>
-            <v-list-item v-for="sub in item.item" :to="sub['href']" class="py-4" :class="sub['title'] == 'Log Out' ? 'text-red' : ''">
-              <template #prepend>
-                <v-icon :icon="sub['icon']"></v-icon>
-              </template>
-              <v-list-item-title v-text="sub['title']"></v-list-item-title>
-              <template #append v-if="sub['title'] !== 'Log Out'">
-                <v-icon :icon="mdiChevronRight"></v-icon>
-              </template>
-            </v-list-item>
-            <v-divider></v-divider>
+          <v-card flat border>
+            <template v-for="(sub, i) in item.item">
+              <v-list-item :to="sub['href']" class="py-4" :class="sub['title'] == 'Log Out' ? 'text-red' : ''">
+                <template #prepend>
+                  <v-icon :icon="sub['icon']"></v-icon>
+                </template>
+                <v-list-item-title v-text="sub['title']"></v-list-item-title>
+                <template #append v-if="sub['title'] !== 'Log Out'">
+                  <v-icon :icon="mdiChevronRight"></v-icon>
+                </template>
+              </v-list-item>
+              <v-divider v-if="item.length !== i + 1"></v-divider>
+            </template>
           </v-card>
         </template>
       </v-col>

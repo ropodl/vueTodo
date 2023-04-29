@@ -1,6 +1,9 @@
 <script setup>
   import { defineAsyncComponent, ref } from "vue";
-  import { RouterView } from "vue-router";
+  import { useRoute } from "vue-router";
+
+  const route = useRoute();
+
   const topbar = defineAsyncComponent(() => import("@/components/topbar"));
   const appbar = defineAsyncComponent(() => import("@/components/appbar"));
   const bottomnav = defineAsyncComponent(() => import("@/components/bottomnav"));
@@ -10,7 +13,7 @@
 <template>
   <v-app>
     <topbar />
-    <appbar />
+    <appbar v-if="route.name !== 'profile'" />
     <v-main>
       <RouterView />
     </v-main>

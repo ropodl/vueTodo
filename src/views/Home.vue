@@ -1,10 +1,24 @@
-<script setup></script>
+<script setup>
+  import { reactive } from "vue";
+
+  const todos = reactive([
+    {
+      title: "This is a test",
+      content: "Some description of the todo",
+    },
+    {
+      title: "This is a test",
+      content: "Some description of the todo",
+    },
+  ]);
+</script>
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row justify="center">
-      <v-col cols="12" md="8">
-        <v-card border>
-          <v-card-title>This is a test</v-card-title>
+      <v-col cols="12" md="4">
+        <v-card border class="mb-3" v-for="todo in todos">
+          <v-card-title>{{ todo.title }}</v-card-title>
+          <v-card-text>{{ todo.content }}</v-card-text>
         </v-card>
       </v-col>
     </v-row>

@@ -1,15 +1,15 @@
-<script setup></script>
+<script setup>
+  import { useRoute } from "vue-router";
+  const route = useRoute();
+  console.log(route);
+</script>
 <template>
   <v-app-bar>
-    <v-container>
+    <v-container class="pa-0">
       <v-row justify="center">
-        <v-col cols="12" md="4"> test </v-col>
-        <v-col cols="12" md="4">
-          <div class="d-flex">
-            <v-spacer></v-spacer>
-            test
-          </div>
-        </v-col>
+        <div class="text-capitalize font-weight-bold">
+          {{ route["name"] }}
+        </div>
       </v-row>
     </v-container>
   </v-app-bar>

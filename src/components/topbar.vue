@@ -1,5 +1,5 @@
 <script setup>
-  import { mdiBatteryCharging, mdiNetworkStrength3 } from "@mdi/js";
+  import { mdiBatteryCharging, mdiNetworkStrength3, mdiWifi } from "@mdi/js";
   import moment from "moment";
   import { ref } from "vue";
 
@@ -11,18 +11,16 @@
 </script>
 <template>
   <v-system-bar>
-    <v-container>
+    <v-container fluid>
       <v-row justify="center">
         <v-col cols="12" md="4">
-          <div class="d-flex">
+          <div class="d-flex text-uppercase">
             {{ currentTime }}
             <v-spacer></v-spacer>
+            <v-icon :icon="mdiWifi"></v-icon>
+            <v-icon :icon="mdiNetworkStrength3"></v-icon>
+            <v-icon :icon="mdiBatteryCharging"></v-icon>
           </div>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-spacer></v-spacer>
-          <v-icon :icon="mdiNetworkStrength3"></v-icon>
-          <v-icon :icon="mdiBatteryCharging"></v-icon>
         </v-col>
       </v-row>
     </v-container>

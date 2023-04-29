@@ -1,8 +1,8 @@
 <script setup></script>
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row justify="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="4">
         <v-card border>
           <v-card-title>This is a focus page</v-card-title>
         </v-card>
